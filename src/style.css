@@ -107,6 +107,7 @@ body{
   display:flex;
   flex-direction:column;
   justify-content:center;
+  color:var(--primary);
 }
 
 .login-right h3{
@@ -281,11 +282,12 @@ body{
 .page-title{
   font-size:40px;
   font-weight:700;
-  margin-bottom:5px;
+  color:#ffffff; /* blanco */
 }
 
 .page-subtitle{
-  color:var(--text-soft);
+  color:#f0d9d9; /* más claro que el actual */
+  font-size:16px;
 }
 
 .crud-form{
@@ -539,4 +541,22 @@ body,
   repeat(auto-fit,minmax(320px,1fr));
 
   gap:25px;
+}
+.card-title,
+.card h5{
+  color:white !important;
+}
+.card{
+  background:#352424 !important;
+  color:white !important;
+  border:1px solid #4d3232 !important;
+}
+
+.card-title,
+.card h5{
+  color:white !important;
+}
+
+.card p{
+  color:#d6c5c5 !important;
 }

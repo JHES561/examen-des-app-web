@@ -196,23 +196,13 @@ export default {
 
     <div>
 
-      <h2>
+<h2 class="text-white">
+  Productos
+</h2>
 
-        <i
-
-          class="bi bi-box-seam"
-
-        ></i>
-
-        Productos
-
-      </h2>
-
-      <p>
-
-        Gestión de productos
-
-      </p>
+<p class="text-warning">
+  Gestión de productos
+</p>
 
     </div>
 
