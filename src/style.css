@@ -38,22 +38,44 @@ body{
 }
 
 .login-wrapper{
+
   min-height:100vh;
+
   display:flex;
+
   justify-content:center;
+
   align-items:center;
-  padding:30px;
+
+  padding:20px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #3d0f0f,
+    #7a1e1e
+  );
 }
 
 .login-card{
-  width:950px;
-  min-height:520px;
+
+  width:100%;
+  max-width:750px;
+
+  min-height:420px;
+
   background:var(--card);
+
   border-radius:25px;
+
   overflow:hidden;
+
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   box-shadow:var(--shadow);
+
 }
 
 .login-left{
@@ -71,9 +93,7 @@ body{
 }
 
 .login-left h1{
-  font-size:58px;
-  margin-bottom:15px;
-  font-weight:700;
+  font-size:42px;
 }
 
 .login-left p{
@@ -95,15 +115,19 @@ body{
 }
 
 .form-control{
-  background:#241919 !important;
-  border:1px solid var(--border) !important;
-  color:white !important;
+  background:#ffffff !important;
+
+  color:#333 !important;
+
+  border:1px solid #d0d0d0 !important;
+
   border-radius:12px !important;
-  padding:14px !important;
+
+  padding:12px !important;
 }
 
 .form-control::placeholder{
-  color:#bea8a8 !important;
+  color:#888 !important;
 }
 
 .form-control:focus{

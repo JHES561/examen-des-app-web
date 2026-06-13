@@ -1,152 +1,128 @@
 <script>
 
-import {
-  loginUser
-}
-from '../services/AuthService'
-
 export default {
-
   data(){
-
-    return{
-
+    return {
       usuario:'',
       password:'',
       error:''
-
     }
-
   },
 
-  methods:{
+  methods: {
 
-    async login(){
+login(){
 
-      try{
+  if(
 
-        const usuario =
-        await loginUser(
+    this.usuario === 'admin'
+    &&
 
-          this.usuario,
+    this.password === '1234'
 
-          this.password
+  ){
 
-        )
+    localStorage.setItem(
+      'usuario',
+      'admin'
+    )
 
-        if(usuario){
+    localStorage.setItem(
+      'token',
+      'token_simulado'
+    )
 
-          localStorage.setItem(
+    this.$router.push(
+      '/dashboard/productos'
+    )
 
-            'usuario',
+  }
 
-            usuario.username
+  else if(
 
-          )
+    this.usuario === 'usuario'
+    &&
 
-          localStorage.setItem(
+    this.password === '1234'
 
-            'rol',
+  ){
 
-            usuario.rol
+    localStorage.setItem(
+      'usuario',
+      'usuario'
+    )
 
-          )
+    localStorage.setItem(
+      'token',
+      'token_simulado'
+    )
 
-          localStorage.setItem(
+    this.$router.push(
+      '/dashboard/productos'
+    )
 
-            'token',
+  }
 
-            'token_simulado'
+  else{
 
-          )
-
-          this.$router.push(
-            '/dashboard/productos'
-          )
-
-        }
-
-        else{
-
-          this.error =
-          'Credenciales incorrectas'
-
-        }
-
-      }
-
-      catch(error){
-
-        this.error =
-        'Error de conexión'
-
-      }
-
-    }
+    this.error =
+    'Credenciales incorrectas'
 
   }
 
 }
-
+  }
+}
 </script>
 
 <template>
 
 <div class="login-wrapper">
-
   <div class="login-card">
+    <div class="login-left">
+      <div>
 
-    <h2 class="mb-4">
+        <h1>SalMendra</h1>
 
-      Iniciar Sesión
+        <p>
+          Sistema administrativo
+          para gestión de productos.
+        </p>
 
-    </h2>
+      </div>
+    </div>
+    <div class="login-right">
 
-    <div
-      v-if="error"
-      class="alert alert-danger"
-    >
+      <h3 class="mb-4">
+        Iniciar sesión
+      </h3>
 
-      {{ error }}
+      <input
+        v-model="usuario"
+        class="form-control mb-3"
+        placeholder="Usuario"
+      >
+
+      <input
+        v-model="password"
+        type="password"
+        class="form-control mb-3"
+        placeholder="Contraseña"
+      >
+
+      <button
+        class="btn btn-danger w-100"
+        @click="login"
+      >
+        Ingresar
+      </button>
+
+      <p class="text-danger mt-3">
+        {{ error }}
+      </p>
 
     </div>
-
-    <input
-
-      v-model="usuario"
-
-      class="form-control mb-3"
-
-      placeholder="Usuario"
-
-    >
-
-    <input
-
-      v-model="password"
-
-      type="password"
-
-      class="form-control mb-3"
-
-      placeholder="Contraseña"
-
-    >
-
-    <button
-
-      class="btn btn-danger w-100"
-
-      @click="login"
-
-    >
-
-      Ingresar
-
-    </button>
-
   </div>
-
 </div>
 
 </template>
