@@ -180,56 +180,20 @@ export default {
 
 <template>
 
+
 <div class="container">
 
-  <div
-
-    class="d-flex
-
-    justify-content-between
-
-    align-items-center
-
-    mb-4"
-
-  >
-
+  <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
     <div>
-
-<h2 class="text-white">
-  Productos
-</h2>
-
-<p class="text-warning">
-  Gestión de productos
-</p>
-
+      <h2 class="fw-semibold mb-0">Productos</h2>
+      <p class="text-muted small mb-0">Gestión de productos</p>
     </div>
-
-    <button
-
-      v-if="esAdmin"
-
-      class="btn btn-success"
-
-      data-bs-toggle="modal"
-
-      data-bs-target="#productoModal"
-
-      @click="abrirNuevo"
-
-    >
-
-      <i
-
-        class="bi bi-plus-circle"
-
-      ></i>
-
-      Nuevo Producto
-
-    </button>
-
+    <div>
+      <button v-if="esAdmin" class="btn btn-primary w-100 w-sm-auto" data-bs-toggle="modal" data-bs-target="#productoModal" @click="abrirNuevo">
+        <i class="bi bi-plus-circle me-1"></i>
+        Nuevo Producto
+      </button>
+    </div>
   </div>
 
   <div
@@ -244,122 +208,24 @@ export default {
 
   </div>
 
-  <div class="row">
-
-    <div
-
-      v-for="producto in productos"
-
-      :key="producto.id"
-
-      class="col-md-4 mb-4"
-
-    >
-
-      <div class="card h-100 shadow">
-
-        <img
-
-          :src="producto.imagen"
-
-          class="card-img-top"
-
-          style="height:220px;object-fit:cover"
-
-        >
-
-        <div class="card-body">
-
-          <h5>
-
-            {{ producto.nombre }}
-
-          </h5>
-
-          <p>
-
-            {{ producto.descripcion }}
-
-          </p>
-
-          <p>
-
-            <strong>
-
-              $
-
-              {{ producto.precio }}
-
-            </strong>
-
-          </p>
-
-          <span
-
-            class="badge bg-danger"
-
-          >
-
-            {{ producto.categoria }}
-
-          </span>
-
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+    <div v-for="producto in productos" :key="producto.id" class="col">
+      <div class="card h-100 shadow-sm">
+        <img :src="producto.imagen" class="card-img-top" style="height:220px;object-fit:cover" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="fw-semibold">{{ producto.nombre }}</h5>
+          <p class="text-muted mb-3">{{ producto.descripcion }}</p>
+          <div class="d-flex justify-content-between align-items-center mt-auto">
+            <strong class="text-primary">$ {{ producto.precio }}</strong>
+            <span class="badge bg-primary">{{ producto.categoria }}</span>
+          </div>
         </div>
-
-        <div
-
-          v-if="esAdmin"
-
-          class="card-footer"
-
-        >
-
-          <button
-
-            class="btn btn-warning me-2"
-
-            data-bs-toggle="modal"
-
-            data-bs-target="#productoModal"
-
-            @click="editarProducto(producto)"
-
-          >
-
-            <i
-
-              class="bi bi-pencil-square"
-
-            ></i>
-
-          </button>
-
-          <button
-
-            class="btn btn-danger"
-
-            data-bs-toggle="modal"
-
-            data-bs-target="#eliminarProductoModal"
-
-            @click="confirmarEliminar(producto.id)"
-
-          >
-
-            <i
-
-              class="bi bi-trash"
-
-            ></i>
-
-          </button>
-
+        <div v-if="esAdmin" class="card-footer">
+          <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#productoModal" @click="editarProducto(producto)"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#eliminarProductoModal" @click="confirmarEliminar(producto.id)"><i class="bi bi-trash"></i></button>
         </div>
-
       </div>
-
     </div>
-
   </div>
 
   <!-- MODAL PRODUCTO -->

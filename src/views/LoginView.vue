@@ -86,53 +86,19 @@ localStorage.setItem(
 </script>
 
 <template>
+  <div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+    <div class="card shadow-sm" style="max-width:420px;width:100%;">
+      <div class="card-body p-4">
+        <h3 class="fw-semibold mb-3">SalMendra</h3>
+        <p class="text-muted small">Sistema administrativo para gestión de productos.</p>
 
-<div class="login-wrapper">
-  <div class="login-card">
-    <div class="login-left">
-      <div>
-
-        <h1>SalMendra</h1>
-
-        <p>
-          Sistema administrativo
-          para gestión de productos.
-        </p>
-
+        <div class="mt-4">
+          <input v-model="usuario" class="form-control mb-3" placeholder="Usuario">
+          <input v-model="password" type="password" class="form-control mb-3" placeholder="Contraseña">
+          <button class="btn btn-primary w-100" @click="login">Ingresar</button>
+          <p class="text-danger mt-3">{{ error }}</p>
+        </div>
       </div>
     </div>
-    <div class="login-right">
-
-      <h3 class="mb-4">
-        Iniciar sesión
-      </h3>
-
-      <input
-        v-model="usuario"
-        class="form-control mb-3"
-        placeholder="Usuario"
-      >
-
-      <input
-        v-model="password"
-        type="password"
-        class="form-control mb-3"
-        placeholder="Contraseña"
-      >
-
-      <button
-        class="btn btn-danger w-100"
-        @click="login"
-      >
-        Ingresar
-      </button>
-
-      <p class="text-danger mt-3">
-        {{ error }}
-      </p>
-
-    </div>
   </div>
-</div>
-
 </template>

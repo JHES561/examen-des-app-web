@@ -154,39 +154,11 @@ export default {
 
 <div class="container">
 
-  <div
-    class="d-flex
-    justify-content-between
-    align-items-center
-    mb-4"
-  >
-
-    <h2>
-
-      <i class="bi bi-people"></i>
-
-      Usuarios
-
-    </h2>
-
-    <button
-
-      class="btn btn-success"
-
-      data-bs-toggle="modal"
-
-      data-bs-target="#usuarioModal"
-
-      @click="abrirNuevo"
-
-    >
-
-      <i class="bi bi-plus-circle"></i>
-
-      Nuevo Usuario
-
-    </button>
-
+  <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+    <h2 class="fw-semibold mb-0"><i class="bi bi-people me-2"></i>Usuarios</h2>
+    <div>
+      <button class="btn btn-primary w-100 w-sm-auto" data-bs-toggle="modal" data-bs-target="#usuarioModal" @click="abrirNuevo"><i class="bi bi-plus-circle me-1"></i> Nuevo Usuario</button>
+    </div>
   </div>
 
   <div
@@ -239,41 +211,8 @@ export default {
 
         <td>
 
-          <button
-
-            class="btn btn-warning btn-sm me-2"
-
-            data-bs-toggle="modal"
-
-            data-bs-target="#usuarioModal"
-
-            @click="editarUsuario(usuario)"
-
-          >
-
-            <i
-              class="bi bi-pencil-square"
-            ></i>
-
-          </button>
-
-          <button
-
-            class="btn btn-danger btn-sm"
-
-            data-bs-toggle="modal"
-
-            data-bs-target="#eliminarModal"
-
-            @click="confirmarEliminar(usuario.id)"
-
-          >
-
-            <i
-              class="bi bi-trash"
-            ></i>
-
-          </button>
+          <button class="btn btn-outline-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#usuarioModal" @click="editarUsuario(usuario)"><i class="bi bi-pencil-square"></i></button>
+          <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarModal" @click="confirmarEliminar(usuario.id)"><i class="bi bi-trash"></i></button>
 
         </td>
 
@@ -361,19 +300,7 @@ export default {
 
         <div class="modal-footer">
 
-          <button
-
-            class="btn btn-success"
-
-            data-bs-dismiss="modal"
-
-            @click="guardarUsuario"
-
-          >
-
-            Guardar
-
-          </button>
+          <button class="btn btn-primary" data-bs-dismiss="modal" @click="guardarUsuario">Guardar</button>
 
         </div>
 

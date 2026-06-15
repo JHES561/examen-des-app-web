@@ -19,13 +19,15 @@ export default {
 <div class="dashboard-wrapper">
 
   <HeaderComponent />
-  <div class="dashboard-body d-flex">
-
-    <SidebarComponent />
-    <main class="dashboard-main flex-grow-1 p-4">
-      
-      <router-view />
-    </main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        <SidebarComponent />
+      </div>
+      <main class="col-12 col-lg-9 p-4">
+        <router-view />
+      </main>
+    </div>
   </div>
 
   <FooterComponent />
