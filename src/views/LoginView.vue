@@ -13,28 +13,33 @@ export default {
 
 login(){
 
-  if(
+if(
 
-    this.usuario === 'admin'
-    &&
+  this.usuario === 'admin'
+  &&
 
-    this.password === '1234'
+  this.password === '1234'
 
-  ){
+){
 
-    localStorage.setItem(
-      'usuario',
-      'admin'
-    )
+  localStorage.setItem(
+    'usuario',
+    'admin'
+  )
 
-    localStorage.setItem(
-      'token',
-      'token_simulado'
-    )
+  localStorage.setItem(
+    'rol',
+    'admin'
+  )
 
-    this.$router.push(
-      '/dashboard/productos'
-    )
+  localStorage.setItem(
+    'token',
+    'token_simulado'
+  )
+
+  this.$router.push(
+    '/dashboard/productos'
+  )
 
   }
 
@@ -47,15 +52,20 @@ login(){
 
   ){
 
-    localStorage.setItem(
-      'usuario',
-      'usuario'
-    )
+localStorage.setItem(
+  'usuario',
+  'usuario'
+)
 
-    localStorage.setItem(
-      'token',
-      'token_simulado'
-    )
+localStorage.setItem(
+  'rol',
+  'usuario'
+)
+
+localStorage.setItem(
+  'token',
+  'token_simulado'
+)
 
     this.$router.push(
       '/dashboard/productos'
